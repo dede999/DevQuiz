@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/flutter
-# Edit at https://www.toptal.com/developers/gitignore?templates=flutter
+# Created by https://www.toptal.com/developers/gitignore/api/flutter,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=flutter,linux
 
 ### Flutter ###
 # Flutter/Dart/Pub related
@@ -66,4 +66,20 @@ lib/generated_plugin_registrant.dart
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
-# End of https://www.toptal.com/developers/gitignore/api/flutter
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+# End of https://www.toptal.com/developers/gitignore/api/flutter,linux
+n
