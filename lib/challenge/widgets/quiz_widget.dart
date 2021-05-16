@@ -1,3 +1,4 @@
+import 'package:dev_quiz/challenge/widgets/answer_widget.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,17 @@ class QuizWidget extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Text(title, style: AppTextStyles.heading),
-          SizedBox(height: 24)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(title, style: AppTextStyles.heading),
+          ),
+          SizedBox(height: 24),
+          AnswerWidget(
+            text: 'Quia Parvus error in principio, magnus est in fine',
+          ),
+          AnswerWidget(text: 'Agora o bicho vai pegar'),
+          AnswerWidget(
+              text: 'Seria legal ter umas opções mais verídicas huehue'),
         ],
       ),
     );
