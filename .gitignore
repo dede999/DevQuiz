@@ -82,4 +82,7 @@ lib/generated_plugin_registrant.dart
 .nfs*
 
 # End of https://www.toptal.com/developers/gitignore/api/flutter,linux
-n
+
+# IDE related folders
+.vscode/
+.idea/
