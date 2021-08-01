@@ -1,6 +1,7 @@
 import 'package:dev_quiz/challenge/widgets/quiz_widget.dart';
 import 'package:dev_quiz/home/widgets/app_bar.dart';
 import 'package:dev_quiz/home/widgets/level-button-widget.dart';
+import 'package:dev_quiz/home/widgets/quiz_card_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'home_controller.dart';
@@ -14,6 +15,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final controller = HomeController();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.getUser();
+    controller.getQuizzes();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 children: controller.quizzes!
-                    .map((quiz) => QuizWidget(title: quiz.title))
+                    .map((quiz) => QuizCardWidget())
                     .toList(),
               ),
             ),
