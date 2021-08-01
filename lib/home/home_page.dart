@@ -1,7 +1,9 @@
+import 'package:dev_quiz/challenge/widgets/quiz_widget.dart';
 import 'package:dev_quiz/home/widgets/app_bar.dart';
 import 'package:dev_quiz/home/widgets/level-button-widget.dart';
-import 'package:dev_quiz/home/widgets/quiz_card_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -11,10 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = HomeController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidgets(),
+      appBar: AppBarWidgets(user: controller.user!),
       body: Column(
         children: [
           Padding(
@@ -35,11 +39,9 @@ class _HomePageState extends State<HomePage> {
               child: GridView.count(
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
-                children: [
-                  QuizCardWidget(),
-                  QuizCardWidget(),
-                  QuizCardWidget()
-                ],
+                children: controller.quizzes!
+                    .map((quiz) => QuizWidget(title: quiz.title))
+                    .toList(),
               ),
             ),
           )
