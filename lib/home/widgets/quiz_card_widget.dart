@@ -1,9 +1,11 @@
 import 'package:dev_quiz/core/core.dart';
+import 'package:dev_quiz/shared/models/data_models.dart';
 import 'package:dev_quiz/shared/widgets/progress_indicator.dart';
 import 'package:flutter/material.dart';
 
 class QuizCardWidget extends StatelessWidget {
-  // const QuizCardWidget({Key key}) : super(key: key);
+  final QuizModel quiz;
+  const QuizCardWidget({Key? key, required this.quiz}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +22,20 @@ class QuizCardWidget extends StatelessWidget {
           Container(
               height: 40, width: 40, child: Image.asset(AppImages.blocks)),
           SizedBox(height: 15),
-          Text('Gerenciamento de Estados', style: AppTextStyles.heading15),
+          Text(quiz.title, style: AppTextStyles.heading15),
           SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Expanded(
-                  flex: 1, child: Text('3/10', style: AppTextStyles.body11)),
+                  flex: 1,
+                  child: Text(
+                      '${quiz.questionsAnswered}/${quiz.questions.length}',
+                      style: AppTextStyles.body11)),
               Expanded(
                 flex: 4,
-                child: ProgressIndicatorWidget(value: .4),
+                child: ProgressIndicatorWidget(
+                    value: quiz.questionsAnswered / quiz.questions.length),
               )
             ],
           )

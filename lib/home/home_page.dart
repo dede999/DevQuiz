@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 children: controller.quizzes!
-                    .map((quiz) => QuizCardWidget())
+                    .map((quiz) => QuizCardWidget(quiz: quiz))
                     .toList(),
               ),
             ),
